@@ -1,4 +1,5 @@
 import rp from 'request-promise';
+import registrationRequests from './registrationRequests.js';
 
 export const Producers = {
   getAll () {
@@ -12,13 +13,12 @@ export const Producers = {
       },
       json: true // Automatically parses the JSON string in the response
     };
-    return rp(options).then((res) => {
-      console.log('res', res[0]);
-      return res.map(({ name, registrationRequests }) => {
-        return { name , registrationRequests };
+    return rp(options)
+      .then(registrationRequests)
+      .catch((err) => {
+        console.error(err);
       });
-    }).catch((err) => {
-      console.error(err);
-    });
+   
   }
+
 }
