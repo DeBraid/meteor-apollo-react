@@ -1,5 +1,3 @@
-// import { Producers } from '/imports/data/producers-connector';
-
 
 const registrationRequests = (res) => {
   return res.map(({ name, registrationRequests }) => {

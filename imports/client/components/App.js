@@ -4,17 +4,16 @@ import { connect } from 'react-apollo';
 class App extends React.Component {
   constructor() {
     super();
-    this.state = {
-      
-    }
+    // this.state = {
+    //   metric: 'registrationRequests'
+    // }
   }
   render() {
-    // const { youtubeVideos } = this.props;
     const { Producers } = this.props;
-    // const videos = youtubeVideos && youtubeVideos.data;
     const producers = Producers && Producers.data;
-    data = _.sortBy(producers, 'registrationRequests');
-    var textStyle = {
+    let data = _.sortBy(producers, 'registrationRequests' );
+
+    const textStyle = {
       color: 'blue',
       fontSize: '20px'
     };
@@ -35,7 +34,6 @@ class App extends React.Component {
             );
           })}
         </div>
-        
       </div>
     );
   }
@@ -55,6 +53,5 @@ function mapQueriesToProps() {
     }
   }
 }
-
 
 export default connect({mapQueriesToProps})(App);
